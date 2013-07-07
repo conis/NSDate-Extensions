@@ -255,6 +255,15 @@
 	return [CURRENT_CALENDAR dateFromComponents:components];
 }
 
+//后增加，取日期在一天中的最后时刻
+- (NSDate *) dateAtEndOfDay{
+	NSDateComponents *components = [CURRENT_CALENDAR components:DATE_COMPONENTS fromDate:self];
+	components.hour = 23;
+	components.minute = 59;
+	components.second = 59;
+	return [CURRENT_CALENDAR dateFromComponents:components];
+}
+
 - (NSDateComponents *) componentsWithOffsetFromDate: (NSDate *) aDate
 {
 	NSDateComponents *dTime = [CURRENT_CALENDAR components:DATE_COMPONENTS fromDate:aDate toDate:self options:0];
